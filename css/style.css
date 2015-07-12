@@ -1,49 +1,57 @@
+body {
+	font-family: arial, Helvetica, sans-serif;
+	text-align: center;
+	background: #1b890e;
+	color: white;padding: 0 0 6em 0;
+	background-image: url('../images/grass.jpg');
+	background-position-x: initial;
+	background-position-y: initial;
+	background-size: initial;
+	background-repeat-x: initial;
+	background-repeat-y: initial;
+	background-origin: initial;
+	background-clip: initial;
+	margin: 0;
+}
 
-
-.card {
+.image {
 	border-radius: 1em;
 	border: 3px dotted white;
-	background-color: #f93;
+	background: url('../images/card-bg.jpg') no-repeat;
+	background-size: 110px 110px;
 	cursor: pointer;
 	display: inline-block;
 	overflow: hidden;
-	width: 100px;
-	height: 100px;
+	width: 110px;
+	height: 110px;
 	vertical-align: top;
+}
+
+.playerimg {
+	width: 110px;
+	height: 110px;
 }
 
 .players {
 	float: right;
 }
 
-/*.player-1 {
-	float: right;
-}
-
-.player-2 {
-	float: right;
-}*/
 
 .row {
-	margin-left: 300px;
+	margin-left: 45px;
 }
 
 .points {
-	float: left;
 	font-size: 30px;
+	display: inline-block;
+	padding-left: 60px;
 }
 
 .time {
-	float: right;
+	/*float: right;*/
 	font-size: 30px;
+	display: inline-block;
+	margin-left: 350px;
 }
 
-@media (min-width: 768px) {}
-
-	.col-sm-8 {
-	  min-width: 100%;
-	  margin-left: 0;
-	}
-
-}
 
