@@ -64,11 +64,10 @@ $(function (){
 			if(previous === current && $(imageClicked).attr('class') !== $(imageClicked2).attr('class')){
 				counter++;
 				if (player) {
-					alert("player's 1 turn")
 					var currentVal = parseInt($('.counter1').text());
 					$('.counter1').text(currentVal + 1);
+					
 				} else {
-					alert("player's 2 turn")
 					var currentVal = parseInt($('.counter2').text());
 					$('.counter2').text(currentVal + 1);
 				}
