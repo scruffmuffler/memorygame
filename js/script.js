@@ -9,7 +9,7 @@ $(function (){
 	var score = $('.score');
 	var reset = $('#reset');
 	var player = true;
-	var whoIsPlaying = null;
+	var currentPlayer = 'Player 1';
 
 	var images_array = [
 		// "./images/beckham.jpg", "./images/beckham.jpg",
@@ -52,18 +52,27 @@ $(function (){
 
 	var makeTurnIndicator = function(){
 		$("<span/>", {
-			class: 'whoseTurn',
-			id: 'block' + blockNum,
-			blockNum+=1;
-		}).appendTo(".buttonsDiv")	
+			id: "turnIndicator"
+		}).appendTo(".buttonsDiv")
+	}
+
+	var whoseTurnIsIt = function(){
+		if(player){
+			currentPlayer='Player 1';
+		} else {
+			currentPlayer='Player 2';
+		}
+		$("#turnIndicator").text(currentPlayer);
 	}
 	//////////////
 
 	////////////////////////////////////
 	// EventListener
 	////////////////////////////////////
-
-
+	// CONSTRUCTS A SPAN TO PUT TURN INTO
+	makeTurnIndicator();
+	$("#turnIndicator").text(currentPlayer);
+ 	/////////////////////////////////////
 	var imageClicked = false;
 	var counter = 0;
 
@@ -105,6 +114,7 @@ $(function (){
 			// console.log(imageClicked);
 		}
 		console.log(counter, player);
+		whoseTurnIsIt();
 
 
 	});

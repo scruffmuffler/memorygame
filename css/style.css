@@ -14,6 +14,13 @@ body {
 	margin: 0;
 }
 
+#turnIndicator{
+	wi
+}
+
+
+
+
 .image {
 	border-radius: 1em;
 	border: 3px dotted white;
@@ -53,7 +60,7 @@ body {
 	padding-left: 70px;
 }
 
-.buttonsDiv .player1, .player2, .reset {
+.buttonsDiv .player1, .player2, .reset, #turnIndicator {
 	text-transform: uppercase;
 	background: #EE872A;
 	padding: 5px 10px;
@@ -82,4 +89,3 @@ body {
 		width: 756px;
 	}
 }
-
