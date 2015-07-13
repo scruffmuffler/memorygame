@@ -6,7 +6,7 @@ $(function (){
 
 	var board = $('.board');
 	var images = $('.image');
-	var score = $('.counter');
+	var score = $('.score');
 	var reset = $('.reset');
 	var player = true; 
 
@@ -65,7 +65,7 @@ $(function (){
 			var imageClicked2 = $(this);
 			var previous = $(imageClicked).find('img').attr('src');
 			var current = $(imageClicked2).find('img').attr('src');
-			if(previous === current){
+			if(previous === current && $(imageClicked).attr('class') !== $(imageClicked2).attr('class')){
 				counter++;
 				if (player) {
 					var currentVal = parseInt($('.counter1').text());
@@ -102,7 +102,11 @@ $(function (){
 	reset.on('click', function (e) {
 		counter = 0;
 		score.html('0');
-		$('img').removeClass('selected');
+		$('.playerimg').each(function (index) {	
+			$(this).attr('src', shuffledArray[index]);
+			$('img').removeClass('selected');
+		// console.log(index);
+	});
 
 	});
 
