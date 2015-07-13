@@ -18,18 +18,22 @@ body {
 	border-radius: 1em;
 	border: 3px dotted white;
 	background: url('../images/card-bg.jpg') no-repeat;
-	background-size: 110px 110px;
+	background-size: 130px 130px;
 	cursor: pointer;
 	display: inline-block;
 	overflow: hidden;
-	width: 110px;
-	height: 110px;
+	width: 130px;
+	height: 130px;
 	vertical-align: top;
 }
 
 .playerimg {
-	width: 110px;
-	height: 110px;
+	width: 130px;
+	height: 130px;
+}
+
+.selected {
+	visibility: hidden;
 }
 
 .players {
@@ -41,17 +45,41 @@ body {
 	margin-left: 45px;
 }
 
-.points {
-	font-size: 30px;
-	display: inline-block;
-	padding-left: 60px;
+.buttonsDiv {
+	text-align: center;
+	margin: 20px;
+	display: block;
+	font-size: 18px;
+	padding-left: 70px;
 }
 
-.time {
-	/*float: right;*/
-	font-size: 30px;
-	display: inline-block;
-	margin-left: 350px;
+.buttonsDiv .player1, .player2, .reset {
+	text-transform: uppercase;
+	background: #EE872A;
+	padding: 5px 10px;
+	margin: 5px;
+	border-radius: 10px;
+	cursor: pointer;
 }
 
+.buttonsDiv .timer {
+	text-transform: uppercase;
+	background: #EE872A;
+	padding: 5px 10px;
+	margin: 5px 10px 5px 10px;
+	border-radius: 10px;
+}
+
+.counter1, .counter2 {
+	background: #EE3311;
+	padding: 5px 10px;
+	margin: 5px;
+	border-radius: 10px;
+}
+
+@media (min-width: 768px) {
+	.container {
+		width: 756px;
+	}
+}
 

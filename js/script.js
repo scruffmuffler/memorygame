@@ -6,21 +6,20 @@ $(function (){
 
 	var board = $('.board');
 	var images = $('.image');
-	var time = $('.time');
-	var score = $('.score')
-	var player1 = 0;
-	var player2 = 0;
+	var score = $('.counter');
+	var reset = $('.reset');
+	var player = true; 
 
 	var images_array = [
-		"./images/beckham.jpg", "./images/beckham.jpg",
+		// "./images/beckham.jpg", "./images/beckham.jpg",
 		"./images/dempsey.jpg", "./images/dempsey.jpg",
 		"./images/fernandoTorres.jpg", "./images/fernandoTorres.jpg",
 		"./images/ibrahimovic.jpg", "./images/ibrahimovic.jpg",
-		"./images/ikerCasillas.jpg", "./images/ikerCasillas.jpg",
+		// "./images/ikerCasillas.jpg", "./images/ikerCasillas.jpg",
 		"./images/marcelo.jpg", "./images/marcelo.jpg",
 		"./images/messi.jpg", "./images/messi.jpg",
 		"./images/neymar.jpg", "./images/neymar.jpg",
-		"./images/parkChuYong.jpg", "./images/parkChuYong.jpg",
+		// "./images/parkChuYong.jpg", "./images/parkChuYong.jpg",
 		"./images/pique.jpg", "./images/pique.jpg",
 		"./images/ronaldo.jpg", "./images/ronaldo.jpg",
 		"./images/wayneRooney.jpg", "./images/wayneRooney.jpg",
@@ -57,47 +56,54 @@ $(function (){
 
 	
 	var imageClicked = false;
+	var counter = 0;
 
 	images.on('click', function (e) {
 		$(this).children().show();
 		if(imageClicked){
 			//second image
 			var imageClicked2 = $(this);
-			var previous = imageClicked.find('img').attr('src');
-			var current = $(this).find('img').attr('src');
+			var previous = $(imageClicked).find('img').attr('src');
+			var current = $(imageClicked2).find('img').attr('src');
 			if(previous === current){
-				$(this).children().show();
-			}else{
+				counter++;
+				if (player) {
+					var currentVal = parseInt($('.counter1').text());
+					$('.counter1').text(currentVal + 1);
+				} else {
+					var currentVal = parseInt($('.counter2').text());
+					$('.counter2').text(currentVal + 1);
+				}
+				console.log('match');
+				$(imageClicked).addClass('selected').children().show();
+				$(imageClicked2).addClass('selected').children().show();
+				imageClicked = false;
+				console.log(imageClicked);
+			} else {
 				console.log('NO MATCH!!');
 				//flip items back
-				imageClicked.children().fadeOut(2000);
-				imageClicked2.children().fadeOut(2000);
-				imageClicked=true;
+				$(imageClicked).children().fadeOut(1000);
+				$(imageClicked2).children().fadeOut(1000);
+				imageClicked=false;
+				player = !player;
 				// console.log('what is this',$(this));
 			}
 
 		} else {
 			//first image
-			imageClicked=$(this);
+			imageClicked = $(this);
+			console.log(imageClicked);
 		}
-		// console.log(images_array)
-		// imageClicked.push(e.target.innerHTML);
+		console.log(counter, player);
 		
+		
+	});
 
-		console.log(imageClicked);
-		// If (click on 2 different pictures) {
-		// 	pictures need to hide
-		// } else if (pictures are the same) {
-		// 	leave them showing on the screen
-		// 	then add a point to the score.
-		// }
-		// if ( !== ) {
-		// 	$(this).children().hide()
-		// } else {
-		// 	console.log("They're equal");
+	reset.on('click', function (e) {
+		counter = 0;
+		score.html('0');
+		$('img').removeClass('selected');
 
-		// }
-		console.log('img clicked');
 	});
 
 });
