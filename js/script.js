@@ -7,7 +7,7 @@ $(function (){
 	var board = $('.board');
 	var images = $('.image');
 	var score = $('.score');
-	var reset = $('.reset');
+	var reset = $('#reset');
 	var player = true; 
 
 	var images_array = [
@@ -40,10 +40,6 @@ $(function (){
 
 	////////////////////////////////////
 
-
-
-
-	
 	$('.playerimg').each(function (index) {	
 		$(this).attr('src', shuffledArray[index]);
 		// console.log(index);
@@ -68,17 +64,19 @@ $(function (){
 			if(previous === current && $(imageClicked).attr('class') !== $(imageClicked2).attr('class')){
 				counter++;
 				if (player) {
+					alert("player's 1 turn")
 					var currentVal = parseInt($('.counter1').text());
 					$('.counter1').text(currentVal + 1);
 				} else {
+					alert("player's 2 turn")
 					var currentVal = parseInt($('.counter2').text());
 					$('.counter2').text(currentVal + 1);
 				}
-				console.log('match');
+				// console.log('match'); 
 				$(imageClicked).addClass('selected').children().show();
 				$(imageClicked2).addClass('selected').children().show();
 				imageClicked = false;
-				console.log(imageClicked);
+				// console.log(imageClicked);
 			} else {
 				console.log('NO MATCH!!');
 				//flip items back
@@ -92,7 +90,7 @@ $(function (){
 		} else {
 			//first image
 			imageClicked = $(this);
-			console.log(imageClicked);
+			// console.log(imageClicked);
 		}
 		console.log(counter, player);
 		
@@ -103,11 +101,11 @@ $(function (){
 		counter = 0;
 		score.html('0');
 		$('.playerimg').each(function (index) {	
-			$(this).attr('src', shuffledArray[index]);
-			$('img').removeClass('selected');
+			$('.image').removeClass('selected', shuffledArray[index]);
 		// console.log(index);
-	});
-
+		});
+		images.children().hide();
+		// console.log(images);
 	});
 
 });
