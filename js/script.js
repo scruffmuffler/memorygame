@@ -114,6 +114,8 @@ $(function (){
 			// console.log(imageClicked);
 		}
 		console.log(counter, player);
+		//////THIS GETS CURRENT PLAYER AND RETURNS IT TO THE INDICATOR
+		/////HAD TO HAPPEN AFTER PLAYER CARD MATCH IS CHECKED
 		whoseTurnIsIt();
 
 
