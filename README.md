@@ -1,4 +1,5 @@
 # memorygame
 GA Memory Game
 
-creating a readme file
+Here's the link to my game.
+http://fhergomez.github.io/memorygame/
