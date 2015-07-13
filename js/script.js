@@ -8,7 +8,8 @@ $(function (){
 	var images = $('.image');
 	var score = $('.score');
 	var reset = $('#reset');
-	var player = true; 
+	var player = true;
+	var whoIsPlaying = null;
 
 	var images_array = [
 		// "./images/beckham.jpg", "./images/beckham.jpg",
@@ -26,7 +27,7 @@ $(function (){
 		"./images/chicharito.jpg", "./images/chicharito.jpg"
 	];
 
-	
+
 
 	/////////////////////////////////
 	// FUNCTIONS
@@ -40,17 +41,29 @@ $(function (){
 
 	////////////////////////////////////
 
-	$('.playerimg').each(function (index) {	
+	$('.playerimg').each(function (index) {
 		$(this).attr('src', shuffledArray[index]);
 		// console.log(index);
 	});
 	images.children().hide();
-	
+
+	///////////////SLOAN's FUNCTIONS
+
+
+	var makeTurnIndicator = function(){
+		$("<span/>", {
+			class: 'whoseTurn',
+			id: 'block' + blockNum,
+			blockNum+=1;
+		}).appendTo(".buttonsDiv")	
+	}
+	//////////////
+
 	////////////////////////////////////
 	// EventListener
 	////////////////////////////////////
 
-	
+
 	var imageClicked = false;
 	var counter = 0;
 
@@ -66,12 +79,12 @@ $(function (){
 				if (player) {
 					var currentVal = parseInt($('.counter1').text());
 					$('.counter1').text(currentVal + 1);
-					
+
 				} else {
 					var currentVal = parseInt($('.counter2').text());
 					$('.counter2').text(currentVal + 1);
 				}
-				// console.log('match'); 
+				// console.log('match');
 				$(imageClicked).addClass('selected').children().show();
 				$(imageClicked2).addClass('selected').children().show();
 				imageClicked = false;
@@ -92,14 +105,14 @@ $(function (){
 			// console.log(imageClicked);
 		}
 		console.log(counter, player);
-		
-		
+
+
 	});
 
 	reset.on('click', function (e) {
 		counter = 0;
 		score.html('0');
-		$('.playerimg').each(function (index) {	
+		$('.playerimg').each(function (index) {
 			$('.image').removeClass('selected', shuffledArray[index]);
 		// console.log(index);
 		});
